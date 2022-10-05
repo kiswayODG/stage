@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<odoo>
+ <!-- LE Menu de Stage  -->
+ <menuitem id="menu_stage"
+    name="Stage"/>
+
+<!-- L'Option du Menu pour ouvrir la liste des Responsables  -->
+ <menuitem id="menu_stage_responsable"
+   name="Responsables"
+   parent="menu_stage"
+    action="action_stage_responsable"
+ />
+
+<record id="stage_responsable_view_tree" model="ir.ui.view">
+
+    <field name="name">Liste des responsables de stage</field>
+    <field name="model" >stage.responsable</field>
+    <field name="arch" type="xml">
+
+    <tree>
+        <field name="nom"/>
+        <field name="prenom"/>
+        <field name="departement"/>
+        <field name="telephone"/>    
+    </tree>
+</field>
+</record>
+
+<record id="stage_responsable_view_form" model="ir.ui.view">
+    <field name="name">Création d'un responsable de stage</field>
+    <field name="model" >stage.responsable</field>
+    <field name="arch" type="xml">
+
+    <form>
+        <sheet>
+            <group>
+                <field name="nom" placeholder="Nom du responsable"/>
+                <field name="prenom" placeholder="Prenom du responsable"/>
+                <field name="departement" placeholder="departement du responsable"/>
+                <field name="telephone" placeholder="telephone du responsable"/>
+            </group>
+        </sheet>
+    </form>
+    </field>
+</record>
+
+
+
+<!-- Action pour ouvrir la liste des responsables  -->
+ <act_window id="action_stage_responsable"
+   name="Gestion des Responsables"
+   res_model="stage.responsable"
+   view_mode="tree,form"
+ />
+ 
+
+
+
+<!-- L'Option du Menu pour ouvrir la liste des stagiaire  -->
+ <menuitem id="menu_stage_stagiaire"
+   name="Stagiaires"
+   parent="menu_stage"
+    action="action_stage_stagiaire"
+ />
+
+<!-- Action  pour ouvrir la liste des stagiaires -->
+ <act_window id="action_stage_stagiaire"
+   name="Gestion des Stagiaires"
+   res_model="stage.stagiaire"
+   view_mode="tree,form"
+ />
+
+<record id="stage_stagiaire_view_tree" model="ir.ui.view">
+
+   <field name="name">Liste des stagiaire</field>
+    <field name="model" >stage.stagiaire</field>
+    <field name="arch" type="xml">
+
+    <tree>
+        <field name="nom"/>
+        <field name="prenom"/>
+        <field name="responsable" widget="many2one_tags"/>
+        <field name="theme"/>
+        <field name="dateDebut"/>
+        <field name="dateFin"/>
+    </tree>
+</field>
+</record>
+
+<record id="stage_stagiaire_view_form" model="ir.ui.view">
+    <field name="name">Création d'un stagiaire</field>
+    <field name="model" >stage.stagiaire</field>
+    <field name="arch" type="xml">
+
+    <form>
+        <sheet>
+            <group>
+                <field name="nom" placeholder="Nom du responsable" />
+                <field name="prenom" placeholder="Prenom du responsable" />
+                <field name='responsable' widget="many2one_tags"/>
+            </group>
+
+            <group>
+                <field name="theme" placeholder="Thème du stage" />
+                <field name="dateDebut" placeholder="Date de dédut de stage" />
+                <field name="dateFin" placeholder="Date de fin de stage" />
+            </group>
+        </sheet>
+    </form>
+    </field>
+</record>
+
+ </odoo>

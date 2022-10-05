@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- <record id="stage_stagiaire_action" model="ir.actions.act_window">
+    <field name="name">Gestion des stages</field>
+    <field name="res_model" >stage.stagiaire</field>
+    <field name="view_type" >form</field>
+    <field name="view_mode" >tree,form</field>
+    </record> -->
+    
+<menuitem
+id="stage_base_menu"
+    name="Application de gestion de stage"/>
+
+<menuitem
+    id="stage_stagiaire_menu"
+    name="Stagiaire"
+    parent="stage_base_menu"
+    action=""/>
+
+
+
+<record id="stage_stagiaire_view_form" model="ir.ui.view">
+    <field name="name">Création d'un stagiaire</field>
+    <field name="model" >stage.stagiaire</field>
+    <field name="arch" type="xml">
+
+    <form>
+        <sheet>
+            <group>
+                <field name="nom" placeholder="Nom du responsable" />
+                <field name="prenom" placeholder="Prenom du responsable" />
+                <field name='responsable' widget="many2one_tags"/>
+            </group>
+
+            <group>
+                <field name="theme" placeholder="Thème du stage" />
+                <field name="dateDebut" placeholder="Date de dédut de stage" />
+                <field name="dateFin" placeholder="Date de fin de stage" />
+            </group>
+        </sheet>
+    </form>
+    </field>
+</record>
+
+
+<record id="stage_stagiaire_view_tree" model="ir.ui.view">
+
+   <field name="name">Liste des stagiaire</field>
+    <field name="model" >stage.stagiaire</field>
+    <field name="arch" type="xml">
+
+    <tree>
+        <field name="nom"/>
+        <field name="prenom"/>
+        <field name="responsable" widget="many2one_tags"/>
+        <field name="theme"/>
+        <field name="dateDebut"/>
+        <field name="dateFin"/>
+    </tree>
+</field>
+</record>
+
+<record id="stage_stagiaire_view_search" model="ir.ui.view">
+    <field name="name">Recherche</field>
+    <field name="model" >stage.stagiaire</field>
+    <field name="arch" type="xml">
+    <search>
+        <field name="nom"/>
+        <field name="prenom"/>
+    </search>
+    </field>
+</record>
+</odoo>
