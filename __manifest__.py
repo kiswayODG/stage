@@ -9,7 +9,8 @@
 'data':['security/stage_security.xml',
         'security/ir.model.access.csv',
         'views/stage_responsable_view.xml',
-        'views/stage_stagiaire_view.xml', 
+        'views/stage_stagiaire_view.xml',
+        'report.xml',
         ],
 
 }
