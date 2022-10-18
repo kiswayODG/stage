@@ -1,5 +1,7 @@
 from odoo import api, models
 from odoo.addons.stage.models import stagiaire
+
+""""
 def print_report(self):
     data = {
        'nom': self.nom,
@@ -11,7 +13,7 @@ def print_report(self):
     }
 
     return self.env.ref('stage.action_stagiaire_id_card').report_action(None, data=data)
-
+"""
 
 class StagiaireCard(models.AbstractModel):
     _name = 'report.stage.report_stagiaire_id_card'
