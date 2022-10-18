@@ -59,6 +59,22 @@
     </field>
 </record>
 
+     <record id="stagiaire_view_search" model="ir.ui.view">
+        <field name="name">stage.stagiaire.search</field>
+        <field name="model">stage.stagiaire</field>
+        <field name="arch" type="xml">
+            <search string="Stagiaire">
+                <field name="name"/>
+                <field name="prenom"/>
+                <field name="x_responsable_id"/>
+                <separator/>
+                <group expand="1" string="Grouper par">
+                    <filter string="ResponsbleStage" name="x_responsable_id" context="{'group_by' :'x_responsable_id'}"/>
+                </group>
+           </search>
+        </field>
+    </record>
+
 <!-- <record id="model_name_view_search" model="ir.ui.view">
     <field name="name">Recherche d'un responsable de stage</field>
     <field name="model" >stage.stagiaire</field>
